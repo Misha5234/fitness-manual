@@ -1,0 +1,212 @@
+/* Базовые настройки для всех устройств */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #121214;
+    color: #ffffff;
+    padding: 20px;
+    -webkit-font-smoothing: antialiased;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 10px 0;
+}
+
+header h1 {
+    font-size: 2.2rem;
+    color: #00d2d3;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+}
+
+header p {
+    color: #84817a;
+    font-size: 1rem;
+}
+
+/* 📱 Настройка кнопок фильтрации */
+.filter-container {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 35px;
+    flex-wrap: wrap; /* По умолчанию на ПК переносятся, если не влезают */
+}
+
+.filter-btn {
+    background-color: #1e1e24;
+    color: #f1f2f6;
+    border: 1px solid #2d2d30;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    white-space: nowrap; /* Запрещаем тексту внутри кнопки переноситься */
+}
+
+.filter-btn:hover {
+    background-color: #2d2d30;
+    border-color: #3f3f44;
+}
+
+.filter-btn.active {
+    background-color: #00d2d3;
+    color: #121214;
+    font-weight: bold;
+    border-color: #00d2d3;
+    box-shadow: 0 4px 12px rgba(0, 210, 211, 0.25);
+}
+
+/* 💻 Сетка карточек по умолчанию (для ПК и ноутбуков) */
+.exercises-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 40px;
+}
+
+/* Карточки */
+.card {
+    background-color: #1e1e24;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    border: 1px solid #2d2d30;
+    opacity: 0;
+    transform: translateY(15px);
+    transition: transform 0.4s ease, box-shadow 0.3s ease, opacity 0.4s ease;
+}
+
+.card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+    border-color: #3f3f44;
+}
+
+.card-image-container {
+    width: 100%;
+    height: auto;
+    background-color: #0c0c0e;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.exercise-gif {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+/* Цвета категорий */
+.badge {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.badge-arms { background-color: rgba(255, 159, 67, 0.12); color: #ff9f43; }
+.badge-chest { background-color: rgba(255, 107, 107, 0.12); color: #ff6b67; }
+.badge-back { background-color: rgba(84, 160, 255, 0.12); color: #54a0ff; }
+.badge-legs { background-color: rgba(29, 209, 161, 0.12); color: #1dd1a1; }
+.badge-shoulders { background-color: rgba(155, 89, 182, 0.12); color: #9b59b6; }
+.badge-abs { background-color: rgba(230, 126, 34, 0.12); color: #e67e22; }
+
+.card-content h3 {
+    margin-bottom: 8px;
+    font-size: 1.25rem;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.card-content p {
+    color: #a4b0be;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   📱 МЕДИА-ЗАПРОСЫ ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ (Экраны меньше 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+    body {
+        padding: 12px; /* Чуть меньше отступы по краям экрана */
+    }
+
+    header {
+        margin-bottom: 20px;
+    }
+
+    header h1 {
+        font-size: 1.8rem; /* Уменьшаем заголовок на смартфонах */
+    }
+
+    header p {
+        font-size: 0.9rem;
+    }
+
+    /* 🔥 Превращаем меню категорий в горизонтальный свайп-бар как в приложениях */
+    .filter-container {
+        justify-content: flex-start; /* Выравнивание по левому краю */
+        flex-wrap: nowrap; /* Запрещаем перенос кнопок вниз */
+        overflow-x: auto; /* Включаем горизонтальную прокрутку */
+        padding: 5px 5px 15px 5px; /* Отступы, чтобы тень от активной кнопки не обрезалась */
+        margin-bottom: 20px;
+        gap: 8px;
+        
+        /* Плавный скролл пальцем на iOS и Android */
+        -webkit-overflow-scrolling: touch; 
+        scrollbar-width: none; /* Прячем некрасивый системный скроллбар в Firefox */
+    }
+
+    /* Прячем системный скроллбар в Chrome, Safari и Edge */
+    .filter-container::-webkit-scrollbar {
+        display: none;
+    }
+
+    .filter-btn {
+        padding: 8px 16px; /* Чуть более компактные кнопочки для пальцев */
+        font-size: 0.88rem;
+    }
+
+    /* Сетка на мобилках перестраивается строго в 1 колонку */
+    .exercises-grid {
+        grid-template-columns: 1fr;
+        gap: 16px; /* Меньше расстояние между карточками */
+    }
+
+    .card-content {
+        padding: 16px; /* Меньше внутренних отступов у текста */
+    }
+
+    .card-content h3 {
+        font-size: 1.15rem; /* Более аккуратные заголовки упражнений */
+    }
+}

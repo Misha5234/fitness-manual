@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Фитнес Мануал с Анимациями</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>🏋️‍♂️ Фитнес Мануал</h1>
+        <p>Выбери группу мышц и смотри технику выполнения</p>
+    </header>
+
+    <main>
+        <!-- Кнопки фильтрации -->
+        <section class="filter-container">
+            <button class="filter-btn active" data-target="all">Все</button>
+            <button class="filter-btn" data-target="chest">Грудь</button>
+            <button class="filter-btn" data-target="back">Спина</button>
+            <button class="filter-btn" data-target="legs">Ноги</button>
+            <button class="filter-btn" data-target="arms">Руки</button>
+            <button class="filter-btn" data-target="shoulders">Плечи</button>
+            <button class="filter-btn" data-target="abs">Пресс</button>
+        </section>
+
+        <!-- Сетка с упражнениями -->
+        <section class="exercises-grid">
+            
+            <!-- РУКИ: Бицепс -->
+            <div class="card" data-category="arms">
+                <div class="card-image-container">
+                    <img src="images/bicep.gif" class="exercise-gif">
+                </div>
+                <div class="card-content">
+                    <span class="badge badge-arms">Руки</span>
+                    <h3>Подъем гантелей на бицепс</h3>
+                    <p>Поочередно поднимай гантели к плечам, разворачивая кисти наружу в верхней точке.</p>
+                </div>
+            </div>
+
+            <!-- РУКИ: Молотки -->
+            <div class="card" data-category="arms">
+                <div class="card-image-container">
+                    <img src="images/hammer.gif" class="exercise-gif">
+                </div>
+                <div class="card-content">
+                    <span class="badge badge-arms">Руки</span>
+                    <h3>Молотковые сгибания</h3>
+                    <p>Поднимай гантели удерживая хват нейтральным (ладони смотрят друг на друга). Прорабатывает брахиалис.</p>
+                </div>
+            </div>
+
+            <!-- РУКИ: Трицепс -->
+            <div class="card" data-category="arms">
+                <div class="card-image-container">
+                    <img src="images/tricep.gif" class="exercise-gif">
+                </div>
+                <div class="card-content">
+                    <span class="badge badge-arms">Руки</span>
+                    <h3>Разгибания из-за головы</h3>
+                    <p>Держи гантель обеими руками над головой. Плавно опускай её за спину, удерживая локти неподвижно.</p>
+                </div>
+            </div>
+
+            <!-- ГРУДЬ: Отжимания -->
+            <div class="card" data-category="chest">
+                <div class="card-image-container">
+                    <img src="images/pushups.gif" class="exercise-gif">
+                </div>
+                <div class="card-content">
+                    <span class="badge badge-chest">Грудь</span>
+                    <h3>Отжимания от пола</h3>
+                    <p>Классическое упражнение. Держи тело ровно, опускайся до касания пола грудью.</p>
+                </div>
+            </div>
+
+            <!-- ГРУДЬ: Брусья -->
+            <div class="card" data-category="chest">
+                <div class="card-image-container">
+                    <img src="images/dips.gif" class="exercise-gif">
+                </div>
+                <div class="card-content">
+                    <span class="badge badge-chest">Грудь</span>
+                    <h3>Отжимания на брусьях</h3>
+                    <p>Наклоняй корпус слегка вперед при спуске, чтобы акцентировать нагрузку на нижнюю часть грудных мышц.</p>
+                </div>
+            </div>
+
+            <!-- СПИНА: Подтягивания -->
+            <div class="card" data-category="back">
+                <div class="card-image-container">
+                    <img src="images/pullups.gif" class="exercise-gif">
+                </div>
+                <div class="card-content">
+                    <span class="badge badge-back">Спина</span>
+                    <h3>Подтягивания на турнике</h3>
+                    <p>Тянись грудью к перекладине. Контролируй опускание вниз, плавно растягивая мышцы спины.</p>
+                </div>
+            </div>
+
+            <!-- СПИНА: Тяга в наклоне -->
+            <div class="card" data-category="back">
+                <div class="card-image-container">
+                    <img src="images/row.gif" class="exercise-gif">
+                </div>
+                <div class="card-content">
+                    <span class="badge badge-back">Спина</span>
+                    <h3>Тяга гантелей в наклоне</h3>
+                    <p>Наклони корпус, держи спину ровно. Тяни гантели к поясу за счет сведения лопаток, а не силы рук.</p>
+                </div>
+            </div>
+
+            <!-- НОГИ: Приседания -->
+            <div class="card" data-category="legs">
+                <div class="card-image-container">
+                    <img src="images/squats.gif" class="exercise-gif">
+                </div>
+                <div class="card-content">
+                    <span class="badge badge-legs">Ноги</span>
+                    <h3>Приседания (базовые)</h3>
+                    <p>Опускай таз до параллели с полом. Следи, чтобы пятки не отрывались, а колени не уходили внутрь.</p>
+                </div>
+            </div>
+
+            <!-- НОГИ: Выпады -->
+            <div class="card" data-category="legs">
+                <div class="card-image-container">
+                    <img src="images/lunges.gif" class="exercise-gif">
+                </div>
+                <div class="card-content">
+                    <span class="badge badge-legs">Ноги</span>
+                    <h3>Выпады с гантелями</h3>
+                    <p>Делай широкий шаг вперед. Опускайся вертикально вниз, чтобы колено впереди стоящей ноги не выходило за носок.</p>
+                </div>
+            </div>
+
+            <!-- ПЛЕЧИ: Жим гантелей -->
+            <div class="card" data-category="shoulders">
+                <div class="card-image-container">
+                    <img src="images/shoulder_press.gif" class="exercise-gif">
+                </div>
+                <div class="card-content">
+                    <span class="badge badge-shoulders">Плечи</span>
+                    <h3>Жим гантелей сидя</h3>
+                    <p>Базовое упражнение на средний и передний пучок дельт. Выжимай гантели вертикально вверх над головой.</p>
+                </div>
+            </div>
+
+            <!-- ПЛЕЧИ: Махи -->
+            <div class="card" data-category="shoulders">
+                <div class="card-image-container">
+                    <img src="images/lateral_raises.gif" class="exercise-gif">
+                </div>
+                <div class="card-content">
+                    <span class="badge badge-shoulders">Плечи</span>
+                    <h3>Махи гантелями в стороны</h3>
+                    <p>Изолированное движение для акцента на среднюю дельту. Поднимай локти до параллели с полом.</p>
+                </div>
+            </div>
+
+            <!-- ПРЕСС: Скручивания -->
+            <div class="card" data-category="abs">
+                <div class="card-image-container">
+                    <img src="images/crunches.gif" class="exercise-gif">
+                </div>
+                <div class="card-content">
+                    <span class="badge badge-abs">Пресс</span>
+                    <h3>Скручивания на полу</h3>
+                    <p>Классическое движение на прямой мышцы живота. Скручивай корпус, прижимая поясницу плотно к полу.</p>
+                </div>
+            </div>
+
+            <!-- ПРЕСС: Планка -->
+            <div class="card" data-category="abs">
+                <div class="card-image-container">
+                    <img src="images/plank.gif" class="exercise-gif">
+                </div>
+                <div class="card-content">
+                    <span class="badge badge-abs">Пресс</span>
+                    <h3>Классическая планка</h3>
+                    <p>Статическое упражнение для укрепления глубоких мышц кора. Держи тело в одну ровную линию без прогибов.</p>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
